@@ -7,17 +7,19 @@ import { BackendErrorsInterface } from 'src/app/auth/types/backendErrors.interfa
   styleUrls: ['./BackendErrorMessages.component.scss'],
 })
 export class BackendErrorMessagesComponent implements OnInit {
-  @Input('backendErrors') backendErrorsProps!: BackendErrorsInterface;
+  @Input('backendErrors') backendErrorsProps!: BackendErrorsInterface | null;
 
   errorMessages!: string[];
 
   ngOnInit(): void {
-    this.errorMessages = Object.keys(this.backendErrorsProps).map(
-      (name: string) => {
-        const messages = this.backendErrorsProps[name].join(' ');
+    if (this.backendErrorsProps !== null) {
+      this.errorMessages = Object.keys(this.backendErrorsProps).map(
+        (name: string) => {
+          const messages = this.backendErrorsProps![name].join(' ');
 
-        return `${name} ${messages}`;
-      }
-    );
+          return `${name} ${messages}`;
+        }
+      );
+    }
   }
 }
