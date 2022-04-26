@@ -6,12 +6,12 @@ import { BannerModule } from '../shared/modules/banner/banner.module';
 import { FeedModule } from '../shared/modules/feed/feed.module';
 import { FeedTogglerModule } from '../shared/modules/feedToggler/feedToggler.module';
 import { PopularTagsModule } from '../shared/modules/popularTags/popularTags.module';
-import { GlobalFeedComponent } from './components/globalFeed/globalFeed.component';
+import { YourFeedComponent } from './components/yourFeed/yourFeed.component';
 
 const routes = [
   {
-    path: '',
-    component: GlobalFeedComponent,
+    path: 'feed',
+    component: YourFeedComponent,
   },
 ];
 
@@ -24,6 +24,6 @@ const routes = [
     PopularTagsModule,
     FeedTogglerModule
   ],
-  declarations: [GlobalFeedComponent],
+  declarations: [YourFeedComponent],
 })
-export class GlobalFeedModule {}
+export class YourFeedModule {}
